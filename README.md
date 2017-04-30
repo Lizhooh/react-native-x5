@@ -13,7 +13,6 @@ X5's WebView for React Native on Android (Interfaces based on ReactNative's WebV
 
 ```bash
 npm i react-native-x5 --save
-
 ```
 
 * Link native library
@@ -32,15 +31,11 @@ rnpm link react-native-x5
 
 Add those lines to AndroidManifest.xml in your project.
 
-```
+```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
 <uses-permission android:name="android.permission.INTERNET" />
-
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 ```
 
@@ -69,6 +64,15 @@ WebView.getX5CoreVersion(function callback (version) {
 });
 ```
 
+#### 兼容
+
+v 0.43 
+
+```js
+打开 ./android/app/build.gradle 在 defaultConfig 中添加 `multiDexEnabled true`
+打开 react-native-x5 的 NPM 包中的 ./index.android.js, 删除第三行, 
+第二行修改为 import { WebView, NativeModules, requireNativeComponent } from 'react-native';
+```
 
 ### Detail
 
